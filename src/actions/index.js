@@ -1,9 +1,9 @@
 const INCREASE = {
-  type: 'Increase'
+  type: 'INCREASE'
 };
 
 const DECREASE = {
-  type: 'Decrease'
+  type: 'DECREASE'
 };
 
 export const increase = () => INCREASE;

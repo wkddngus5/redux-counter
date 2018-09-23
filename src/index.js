@@ -1,34 +1,22 @@
 import { createStore } from 'redux';
+import React from 'react';
+import ReactDOM from 'react-dom'
+
 import rootReducer from './reducers';
-import { increase, decrease } from './actions';
+import {increase, decrease} from "./actions";
+import Counter from "./components/Counter";
+
 
 const store = createStore(rootReducer);
-const valueEl = document.querySelector('#value');
 
-function render() {
-  valueEl.innerHTML = store.getState().toString();
-}
+const render = () => ReactDOM.render(
+  <Counter
+    value={store.getState()}
+    onIncrease={() => store.dispatch(increase())}
+    onDecrease={() => store.dispatch(decrease())}
+  />,
+  document.querySelector('#root')
+);
 
 render();
 store.subscribe(render);
-
-document.querySelector('#increase').addEventListener('click', () => {
-  store.dispatch(increase())
-});
-
-document.querySelector('#decrease').addEventListener('click', () => {
-  store.dispatch(decrease())
-});
-
-document.querySelector('#increaseIfOdd').addEventListener('click', () => {
-  if(store.getState() % 2 === 0) {
-    return;
-  }
-  store.dispatch(increase())
-});
-
-document.querySelector('#increaseAsync').addEventListener('click', () => {
-  setTimeout(function() {
-    store.dispatch(increase());
-  }, 1000);
-});
