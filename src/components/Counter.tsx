@@ -1,6 +1,14 @@
-import React, { Component } from 'react'
+import React, { ReactNode, Component } from 'react'
 
-class Counter extends Component {
+interface CounterProp {
+  value: number,
+  onIncrease: () => void,
+  onDecrease: () => void,
+}
+
+interface CounterState {}
+
+class Counter extends Component<CounterProp, CounterState> {
   constructor(props) {
     super(props);
     this.increaseIfOdd = this.increaseIfOdd.bind(this);

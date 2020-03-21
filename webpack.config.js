@@ -5,7 +5,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
@@ -22,6 +22,7 @@ module.exports = {
       }
     ]
   },
+  resolve: { extensions: [ '.js', '.json', '.ts', '.tsx' ] },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",

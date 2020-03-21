@@ -28,6 +28,7 @@
     "webpack-dev-server": "^3.1.8"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.9.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0"
   }
